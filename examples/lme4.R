@@ -37,8 +37,9 @@ sig10 <- c(1.0,0.9,0.9,1.0)
 sig2 <- 2.0
 esig <- 1.0
 beta <- c(1.0,2.0)
+timegap <- 5.0
 
-dat3 <- makedata2waylinear(timelength,idnum, groupnum,beta ,sig10,sig2,esig )
+dat3 <- makedata2waylinear(timelength,idnum, groupnum,beta ,sig10,sig2,esig,timegap )
 m3 <- lmer( y~ time+(time|id), dat3$dat,REML=F)
 calAIC(m3)
 cAIC(m3)
