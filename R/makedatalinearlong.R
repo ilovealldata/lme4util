@@ -1,10 +1,10 @@
-makedata2waylinear <- function (timelength,idnum, groupnum,beta ,sig10,sig2,esig ) {
+makedata2waylinear <- function (timelength,idnum, groupnum,beta ,sig10,sig2,esig,timegap ) {
   
   n<-timelength*idnum
   grplength=as.integer(n/groupnum)
   ggrp  <- 1:groupnum
   idd <- 1:idnum
-  ttime <- 1:timelength
+  ttime <- (0:(timelength-1))*timegap
   
   id <- factor(rep(idd,each=timelength))
   time <-  rep(ttime,idnum)
