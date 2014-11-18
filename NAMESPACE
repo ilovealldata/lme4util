@@ -1,0 +1,7 @@
+exportPattern("^[[:alpha:]]+")
+import(Matrix)
+import(lme4)
+export("calAIC")
+export("traceHat")
+export("CrossedDataBAL")
+export("NestedDataBAL")
