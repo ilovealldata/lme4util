@@ -3,6 +3,7 @@ library(Matrix)
 library(cAIC4)
 library(mlmRev)
 library(lme4util)
+library(MASS)
 
 fm1 <- lmer(Yield ~ 1|Batch, Dyestuff ,REML=F)
 system.time(print(cAIC(fm1)))
@@ -28,3 +29,16 @@ calAIC(m1)
 dat2 = CrossedDataBAL(mu,nf,nlvl,vc)
 m2<-lmer(model, dat2$dat,REML=F)
 calAIC(m2)
+
+timelength<- 5
+idnum<-100
+groupnum<-10
+sig10 <- c(1.0,0.9,0.9,1.0)
+sig2 <- 2.0
+esig <- 1.0
+beta <- c(1.0,2.0)
+
+dat3 <- makedata2waylinear(timelength,idnum, groupnum,beta ,sig10,sig2,esig )
+m3 <- lmer( y~ time+(time|id), dat3$dat,REML=F)
+calAIC(m3)
+cAIC(m3)
