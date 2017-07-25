@@ -1,4 +1,5 @@
 
+##
 calAIC <- function(fit) {
   fit1 <- fit
   logL <- sum(dnorm(getME(fit1,"y"),predict(fit1),attr(VarCorr(fit1),"sc"),log=T))
